@@ -49,13 +49,15 @@ jobs:
             cd /home/ubuntu/Django_coffeeshop
             
             # Ensure Python venv and install dependencies
-            python3 -m venv venv
             source venv/bin/activate
             pip install --upgrade pip
             pip install -r requirements.txt
             
             # Run Django management commands
+            cd /home/ubuntu/Django_coffeeshop/webempresa
             python manage.py collectstatic --noinput
+            python manage.py makemigrations
+
             python manage.py migrate
             
             # Restart Gunicorn and Nginx (if applicable)
