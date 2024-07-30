@@ -33,4 +33,5 @@ urlpatterns = [
 if settings.DEBUG:
     from django.conf.urls.static import static
     # With this the user is able to visualize an image when he clicks it, a page will pop up and show the image
+    urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_URL)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
